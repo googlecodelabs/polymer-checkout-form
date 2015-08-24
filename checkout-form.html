@@ -51,22 +51,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       margin-right: 20px;
     }
 
-    .footer {
-      margin-left: 50%;
-      padding-left: 10px;
-      width: 50%;
-      color:  #757575;
-    }
-
-    .price {
-      color:  #212121;
-    }
-
     paper-button {
       background-color: #4285f4;
       color: #fff;
-      margin-right: 0px;
       margin-top: 50px;
+      width: 100%;
     }
 
     </style>
@@ -88,43 +77,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <gold-cc-cvc-input name="cc-cvc" required card-type="[[cardType]]"></gold-cc-cvc-input>
       </div>
 
-      <br><br>
-
-      <div class="horizontal layout">
-        <div class="footer">
-          <div class="total-item horizontal layout">
-            <div class="flex">Sub total </div>
-            <div class="price">$30</div>
-          </div>
-
-          <div class="total-item horizontal layout">
-            <div class="flex">Tax </div>
-            <div class="price">$2.99</div>
-          </div>
-
-          <div class="total-item horizontal layout">
-            <div class="flex">Your total </div>
-            <div class="price">$32.99</div>
-          </div>
-
-          <div class="horizontal layout end-justified">
-            <paper-button on-click="_submit">Pay $32.99</paper-button>
-          </div>
-        </div>
-      </div>
+      <paper-button on-click="_submit">Pay</paper-button>
 
     </form>
+
   </template>
+  <script>
+    Polymer({
+
+      is: 'checkout-form',
+
+      _submit: function() {
+        this.$.form.submit();
+      }
+
+    });
+  </script>
 </dom-module>
-
-<script>
-  Polymer({
-
-    is: 'checkout-form',
-
-    _submit: function() {
-      this.$.form.submit();
-    }
-
-  });
-</script>
