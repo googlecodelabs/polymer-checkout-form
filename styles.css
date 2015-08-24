@@ -1,0 +1,14 @@
+body {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 24px;
+  background-color: #FAFAFA;
+}
+.card {
+  background: #FFFFFF;
+  max-width: 400px;
+  min-width: 200px;
+  padding: 24px;
+  margin: 0 auto;
+}
