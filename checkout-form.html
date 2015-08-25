@@ -64,15 +64,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="flex company">ACME Goods Co.</div>
     </div>
 
-    <form is="iron-form" id="form">
+    <form is="iron-form" id="form" method="post" action="/checkout">
 
       <paper-input name="name" label="Name on card" required autocomplete="cc-name"></paper-input>
 
-      <gold-cc-input name="cc-number" required card-type="{{cardType}}"></gold-cc-input>
+      <gold-cc-input name="cc-number" required auto-validate card-type="{{typeOfCard}}"></gold-cc-input>
 
       <div class="horizontal layout">
-        <gold-cc-expiration-input name="cc-expiration" required label="Expiration"></gold-cc-expiration-input>
-        <gold-cc-cvc-input name="cc-cvc" required card-type="[[cardType]]"></gold-cc-cvc-input>
+        <gold-cc-expiration-input name="cc-expiration" required auto-validate label="Expiration"></gold-cc-expiration-input>
+        <gold-cc-cvc-input name="cc-cvc" required card-type="[[typeOfCard]]"></gold-cc-cvc-input>
       </div>
 
       <paper-button on-click="_submit">Pay</paper-button>
@@ -85,8 +85,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       is: 'checkout-form',
 
+      listeners: {
+        'form.iron-form-submit': '_handleFormSubmit'
+      },
+
       _submit: function() {
         this.$.form.submit();
+      },
+
+      _handleFormSubmit: function() {
+        console.log('Form submitted successfully! You are so rich now!');
       }
 
     });
