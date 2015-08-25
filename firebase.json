@@ -1,0 +1,9 @@
+{
+  "firebase": "polymer-checkout",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
